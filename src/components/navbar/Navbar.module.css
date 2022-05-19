@@ -1,0 +1,14 @@
+.header {
+  background: #ffffff;
+}
+
+.headerImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+}
+
+.headerImage {
+  height: 3.75rem;
+}

@@ -1,51 +1,37 @@
-.header {
-  background: #ffffff;
-}
-
-.headerImageWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80px;
-}
-
-.headerImage {
-  height: 60px;
-}
-
 .main {
-  padding: 32px 0;
+  padding: 2rem 0;
+  margin: 3.125rem auto;
 }
 
 .buttonWrapper {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .messageContainer {
-  margin-top: 10px;
+  margin-top: 0.625rem;
   display: flex;
   justify-content: center;
 }
 
 .statsContainer {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .reactModalContent {
   font-family: "Open Sans";
   position: absolute;
-  top: 120px;
+  top: 7.5rem;
   left: 0;
   right: 0;
-  bottom: 120px;
+  bottom: 7.5rem;
   width: 750px;
-  height: auto;
+  height: 46.875rem;
   margin: 0 auto;
   background: #ffffff;
   border: none;
   border-radius: 0;
   outline: none;
-  padding: 24px;
+  padding: 1.5rem;
   overflow: auto;
 }
 

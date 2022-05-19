@@ -4,12 +4,13 @@ import { FaTimes } from "react-icons/fa";
 import { Button } from "components/button";
 import ProductList from "components/product/ProductList";
 import { Form } from "components/form";
-import logo from "assets/img/droppe-logo.png";
-import img1 from "assets/img/img1.png";
-import img2 from "assets/img/img2.png";
+
 import styles from "App.module.css";
 import { useDocumentTitle } from "hooks/useDocumentTitle";
 import { useBusiness } from "hooks/useBusiness";
+import { Navbar } from "components/navbar";
+import { Header } from "components/header";
+import classNames from "classnames";
 
 const App: React.FC = () => {
   useDocumentTitle("Droppe refactor app");
@@ -34,30 +35,10 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className={styles.header}>
-        <div className={["container", styles.headerImageWrapper].join(" ")}>
-          <img src={logo} className={styles.headerImage} />
-        </div>
-      </div>
+      <Navbar />
+      <Header />
 
-      <>
-        <span
-          className={["container", styles.main].join(" ")}
-          style={{
-            margin: "50px inherit",
-            display: "flex",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <img src={img1} style={{ maxHeight: "15em", display: "block" }} />
-          <img src={img2} style={{ maxHeight: "15rem", display: "block" }} />
-        </span>
-      </>
-
-      <div
-        className={["container", styles.main].join(" ")}
-        style={{ paddingTop: 0 }}
-      >
+      <div className={classNames("container", styles["main"])}>
         <div className={styles.buttonWrapper}>
           <span role="button">
             <Button onClick={() => setIsOpen(true)}>

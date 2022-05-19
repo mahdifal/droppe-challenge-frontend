@@ -40,17 +40,8 @@ export const Product: React.FC<{
     actionBarItem,
     actionBarItemLabel,
   } = styles;
-  // Problem: Now product title can be too long, I just put overflowX as fix now
   return (
-    <span
-      className={productClass}
-      style={{
-        display: "inline-block",
-        overflowX: "scroll",
-        float: "none",
-        clear: "both",
-      }}
-    >
+    <span className={productClass}>
       <span className={styles["product-title"]} style={{ overflowX: "hidden" }}>
         {product.title}
       </span>

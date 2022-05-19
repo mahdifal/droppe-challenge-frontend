@@ -1,0 +1,11 @@
+.main {
+  padding: 2rem 0;
+  margin: 3.125rem auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.headerImg {
+  max-height: 15rem;
+  display: block;
+}
