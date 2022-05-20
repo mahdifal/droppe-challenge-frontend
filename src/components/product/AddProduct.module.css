@@ -1,0 +1,54 @@
+.buttonWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.messageContainer {
+  margin-top: 0.625rem;
+  display: flex;
+  justify-content: center;
+}
+
+.reactModalContent {
+  font-family: "Open Sans";
+  position: absolute;
+  top: 7.5rem;
+  left: 0;
+  right: 0;
+  bottom: 7.5rem;
+  width: 750px;
+  height: 46.875rem;
+  margin: 0 auto;
+  background: #ffffff;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.reactModalOverlay {
+  font-family: "Open Sans";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modalContentHelper {
+  position: relative;
+  height: 100%;
+  padding: 64px 0;
+}
+
+.modalClose {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+  font-size: 24px;
+  line-height: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

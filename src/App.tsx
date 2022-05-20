@@ -1,33 +1,30 @@
 import * as React from "react";
-import Modal from "react-modal";
-import { FaTimes } from "react-icons/fa";
-import { Button } from "components/button";
+import classNames from "classnames";
 import ProductList from "components/product/ProductList";
-import { Form } from "components/form";
-
 import styles from "App.module.css";
 import { useDocumentTitle } from "hooks/useDocumentTitle";
-import { useBusiness } from "hooks/useBusiness";
+import { IShop, useBusiness } from "hooks/useBusiness";
 import { Navbar } from "components/navbar";
 import { Header } from "components/header";
-import classNames from "classnames";
+import AddProduct from "components/product/AddProduct";
+import ProductsCount from "components/product/ProductsCount";
 
-const App: React.FC = () => {
+const App: React.FC<IShop> = () => {
   useDocumentTitle("Droppe refactor app");
 
   const {
     error,
     loading,
-    prodCount,
     products,
     isShowingMessage,
     message,
+    prodCount,
     numFavorites,
     favClick,
     setIsOpen,
     isOpen,
     onSubmit,
-  } = useBusiness("/products");
+  } = useBusiness();
 
   // if (loading) return "Loading...";
 
@@ -37,49 +34,22 @@ const App: React.FC = () => {
     <>
       <Navbar />
       <Header />
-
       <div className={classNames("container", styles["main"])}>
-        <div className={styles.buttonWrapper}>
-          <span role="button">
-            <Button onClick={() => setIsOpen(true)}>
-              Send product proposal
-            </Button>
-          </span>
-          {isShowingMessage && (
-            <div className={styles.messageContainer}>
-              <i>{message}</i>
-            </div>
-          )}
-        </div>
+        <AddProduct
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+          isShowingMessage={isShowingMessage}
+          message={message}
+          onSubmit={onSubmit}
+        />
+        <ProductsCount prodCount={prodCount} numFavorites={numFavorites} />
 
-        <div className={styles.statsContainer}>
-          <span>Total products: {prodCount}</span>
-          {" - "}
-          <span>Number of favorites: {numFavorites}</span>
-        </div>
-
-        {products && !!products.length ? (
+        {products && products.length ? (
           <ProductList products={products} onFav={favClick} />
         ) : (
           <div></div>
         )}
       </div>
-
-      <>
-        <Modal
-          isOpen={isOpen}
-          className={styles.reactModalContent}
-          overlayClassName={styles.reactModalOverlay}
-        >
-          <div className={styles.modalContentHelper}>
-            <div className={styles.modalClose} onClick={() => setIsOpen(false)}>
-              <FaTimes />
-            </div>
-
-            <Form on-submit={onSubmit} />
-          </div>
-        </Modal>
-      </>
     </>
   );
 };

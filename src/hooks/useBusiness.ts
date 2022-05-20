@@ -2,7 +2,18 @@ import * as React from "react";
 import axios from "api/client";
 import lodash from "lodash";
 
-export type Response = {
+export interface IProduct {
+  length: IProduct;
+  product: {
+    title: string;
+    description: string;
+    price: number;
+    isFavorite: boolean;
+    rating: { rate: number; count: number };
+  }[];
+}
+
+export interface IShop {
   products: any[];
   prodCount: number;
   loading: boolean;
@@ -18,9 +29,9 @@ export type Response = {
     description: string;
     price: string;
   }) => void;
-};
+}
 
-export const useBusiness = (url: string): Response => {
+export const useBusiness = (): IShop => {
   const [products, setProducts] = React.useState<any[]>([]);
   const [prodCount, setProdCount] = React.useState<number>(0);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -34,7 +45,7 @@ export const useBusiness = (url: string): Response => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(url);
+      const response = await axios.get("/products");
       setProducts(response.data);
       setProdCount(response.data.length);
     } catch (error) {
@@ -64,7 +75,7 @@ export const useBusiness = (url: string): Response => {
     setNumFavorites(totalFavs);
   };
 
-  const onSubmit = (payload: {
+  const onSubmit = async (payload: {
     title: string;
     description: string;
     price: string;
@@ -75,32 +86,24 @@ export const useBusiness = (url: string): Response => {
       description: payload.description,
       price: payload.price,
     });
-    setProducts(updated);
-    setProdCount(lodash.size(products) + 1);
 
-    setIsOpen(false);
+    try {
+      const response = await axios.post("/products", payload);
+      if (response.status === 200) {
+        setProducts(updated);
+        setProdCount(lodash.size(products) + 1);
+        setMessage(`Adding Product`);
+        setIsShowingMessage(true);
+        setIsOpen(false);
+      }
+    } catch (error) {
+      setError(error);
+    }
 
-    setIsShowingMessage(true);
-    setMessage(`Adding Product`);
-
-    // **this POST request doesn't actually post anything to any database**
-    fetch("https://fakestoreapi.com/products", {
-      method: "POST",
-      body: JSON.stringify({
-        title: payload.title,
-        price: payload.price,
-        description: payload.description,
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        (function (t) {
-          setTimeout(() => {
-            setIsShowingMessage(false);
-            setMessage("");
-          }, 2000);
-        })();
-      });
+    setTimeout(() => {
+      setIsShowingMessage(false);
+      setMessage("");
+    }, 2000);
   };
 
   return {
