@@ -40,13 +40,13 @@
 .modalContentHelper {
   position: relative;
   height: 100%;
-  padding: 64px 0;
+  padding: 4rem 0;
 }
 
 .modalClose {
   cursor: pointer;
   color: rgba(0, 0, 0, 1);
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 0;
   position: absolute;
   top: 0;
