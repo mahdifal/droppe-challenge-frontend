@@ -6,5 +6,5 @@ type ErrorProps = {
 };
 
 export const Error: React.FC<ErrorProps> = ({ title }) => {
-  return <div className={styles.alert}>{title}</div>;
+  return <section className={styles.alert}>{title}</section>;
 };

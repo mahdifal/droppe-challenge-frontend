@@ -8,8 +8,8 @@ export const ProductCard: React.FC<{
   onFav: (title: string) => void;
 }> = ({ product, onFav }) => {
   return (
-    <span className={styles.product}>
-      <span className={styles["product-title"]}>{product.title}</span>
+    <article className={styles.product}>
+      <header className={styles["product-title"]}>{product.title}</header>
       <p>
         <strong>
           Rating: {product.rating ? `${product.rating.rate}/5` : ""}
@@ -41,6 +41,6 @@ export const ProductCard: React.FC<{
           </span>
         </span>
       </span>
-    </span>
+    </article>
   );
 };

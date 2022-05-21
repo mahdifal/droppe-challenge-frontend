@@ -11,11 +11,11 @@ const ProductsCount: React.FC<ProductsCountProps> = ({
   numFavorites,
 }) => {
   return (
-    <div className={styles.statsContainer}>
+    <section className={styles.statsContainer}>
       <span>Total products: {prodCount}</span>
       {" - "}
       <span>Number of favorites: {numFavorites}</span>
-    </div>
+    </section>
   );
 };
 

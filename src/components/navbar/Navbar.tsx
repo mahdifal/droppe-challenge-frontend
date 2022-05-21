@@ -5,10 +5,10 @@ import classNames from "classnames";
 
 export const Navbar: React.FC = () => {
   return (
-    <div className={styles.header}>
-      <div className={classNames("container", styles["headerImageWrapper"])}>
+    <section className={styles.header}>
+      <figure className={classNames("container", styles["headerImageWrapper"])}>
         <img src={logo} className={styles.headerImage} alt="droppe-logo" />
-      </div>
-    </div>
+      </figure>
+    </section>
   );
 };

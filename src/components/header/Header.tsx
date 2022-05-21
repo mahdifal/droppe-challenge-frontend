@@ -7,10 +7,10 @@ import classNames from "classnames";
 export const Header: React.FC = () => {
   return (
     <>
-      <span className={classNames("container", styles["main"])}>
-        <img src={img1} className={styles.headerImg} alt="header" />
-        <img src={img2} className={styles.headerImg} alt="header" />
-      </span>
+      <figure className={classNames("container", styles["main"])}>
+        <img src={img1} className={styles.headerImg} alt="shop header" />
+        <img src={img2} className={styles.headerImg} alt="shop header" />
+      </figure>
     </>
   );
 };

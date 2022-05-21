@@ -26,16 +26,16 @@ const AddProduct: React.FC<AddProductProps> = ({
 }) => {
   return (
     <>
-      <div className={styles.buttonWrapper}>
+      <section className={styles.buttonWrapper}>
         <span role="button">
           <Button onClick={() => setIsOpen(true)}>Send product proposal</Button>
         </span>
         {isShowingMessage && (
-          <div className={styles.messageContainer}>
+          <header className={styles.messageContainer}>
             <i>{message}</i>
-          </div>
+          </header>
         )}
-      </div>
+      </section>
       <Modal
         isOpen={isOpen}
         className={styles.reactModalContent}

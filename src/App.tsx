@@ -29,7 +29,7 @@ const App: React.FC<IShop> = () => {
   } = useBusiness();
 
   return (
-    <>
+    <main>
       <Navbar />
       <Header />
       <div className={classNames("container", styles["main"])}>
@@ -49,7 +49,7 @@ const App: React.FC<IShop> = () => {
           <div></div>
         )}
       </div>
-    </>
+    </main>
   );
 };
 
