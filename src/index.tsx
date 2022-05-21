@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import "./assets/css/index.css";
-// import { IProduct } from "hooks/useBusiness";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -18,19 +17,19 @@ ReactDOM.render(
       isShowingMessage={false}
       message={""}
       numFavorites={0}
-      favClick={function (title: string): void {
-        throw new Error("Function not implemented.");
-      }}
       isOpen={false}
+      favClick={function (title: string): void {
+        console.log(title);
+      }}
       setIsOpen={function (value: React.SetStateAction<boolean>): void {
-        throw new Error("Function not implemented.");
+        console.log(value);
       }}
       onSubmit={function (payload: {
         title: string;
         description: string;
         price: string;
       }): void {
-        throw new Error("Function not implemented.");
+        console.log(payload);
       }}
     />
   </React.StrictMode>,

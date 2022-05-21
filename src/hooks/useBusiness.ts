@@ -3,18 +3,15 @@ import axios from "api/client";
 import lodash from "lodash";
 
 export interface IProduct {
-  length: IProduct;
-  product: {
-    title: string;
-    description: string;
-    price: number;
-    isFavorite: boolean;
-    rating: { rate: number; count: number };
-  }[];
+  title: string;
+  description: string;
+  price: number;
+  isFavorite: boolean;
+  rating: { rate: number; count: number };
 }
 
-export interface IShop {
-  products: any[];
+export type IShop = {
+  products: IProduct[];
   prodCount: number;
   loading: boolean;
   error: any;
@@ -29,7 +26,7 @@ export interface IShop {
     description: string;
     price: string;
   }) => void;
-}
+};
 
 export const useBusiness = (): IShop => {
   const [products, setProducts] = React.useState<any[]>([]);

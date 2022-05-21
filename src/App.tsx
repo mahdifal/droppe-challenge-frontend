@@ -8,6 +8,8 @@ import { Navbar } from "components/navbar";
 import { Header } from "components/header";
 import AddProduct from "components/product/AddProduct";
 import ProductsCount from "components/product/ProductsCount";
+import { Error } from "components/error";
+import { Loading } from "components/loading";
 
 const App: React.FC<IShop> = () => {
   useDocumentTitle("Droppe refactor app");
@@ -26,10 +28,6 @@ const App: React.FC<IShop> = () => {
     onSubmit,
   } = useBusiness();
 
-  // if (loading) return "Loading...";
-
-  // if (error) return "Error...";
-
   return (
     <>
       <Navbar />
@@ -43,7 +41,8 @@ const App: React.FC<IShop> = () => {
           onSubmit={onSubmit}
         />
         <ProductsCount prodCount={prodCount} numFavorites={numFavorites} />
-
+        {error && <Error title={error.message} />}
+        {loading && <Loading />}
         {products && products.length ? (
           <ProductList products={products} onFav={favClick} />
         ) : (

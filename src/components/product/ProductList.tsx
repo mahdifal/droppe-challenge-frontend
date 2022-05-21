@@ -1,88 +1,25 @@
 import * as React from "react";
 import lodash from "lodash";
-import { FaStar } from "react-icons/fa";
-import styles from "./ProductList.module.css";
+import { ProductCard } from "./ProductCard";
+import { IProduct } from "hooks/useBusiness";
 
 interface IPostsProps {
-  products: any;
+  products: IProduct[];
   onFav: (title: string) => void;
 }
 
-export default class Posts extends React.Component<IPostsProps, {}> {
-  constructor(props: any) {
-    super(props);
-  }
-  render() {
-    let productsarr = [];
-    for (const [i, p] of this.props.products.entries()) {
-      productsarr.push(
-        <Product key={i} index={i} product={p} onFav={this.props.onFav} />
-      );
-    }
-    return <div>{lodash.reverse(productsarr)}</div>;
-  }
-}
-
-export const Product: React.FC<{
-  index: number;
-  product: {
-    title: string;
-    description: string;
-    price: number;
-    isFavorite: boolean;
-    rating: { rate: number; count: number };
-  };
-  onFav: (title: string) => void;
-}> = ({ product, onFav }) => {
-  const {
-    product: productClass,
-    productBody,
-    actionBarItem,
-    actionBarItemLabel,
-  } = styles;
+const ProductList: React.FC<IPostsProps> = ({ products, onFav }) => {
   return (
-    <span className={productClass}>
-      <span className={styles["product-title"]} style={{ overflowX: "hidden" }}>
-        {product.title}
-      </span>
-
-      <p>
-        <strong>
-          Rating: {product.rating ? `${product.rating.rate}/5` : ""}
-        </strong>
-      </p>
-
-      <p>
-        <b>Price: ${+product.price}</b>
-      </p>
-
-      <p className={productBody}>
-        <span>
-          <b>Description:</b>
-        </span>
-        <br />
-        {product.description}
-      </p>
-
-      <span
-        className={styles["action_bar"]}
-        style={{ display: "table", width: "100%" }}
-      >
-        <span
-          className={`${actionBarItem} ${product.isFavorite ? "active" : ""}`}
-          role="button"
-          onClick={() => {
-            onFav(product.title);
-          }}
-        >
-          <FaStar />{" "}
-          <span className={actionBarItemLabel}>
-            {!!!!product.isFavorite
-              ? "Remove from favorites"
-              : "Add to favorites"}
-          </span>
-        </span>
-      </span>
-    </span>
+    <>
+      {lodash.reverse(
+        products?.map(
+          (product: IProduct, index: React.Key | null | undefined) => (
+            <ProductCard key={index} product={product} onFav={onFav} />
+          )
+        )
+      )}
+    </>
   );
 };
+
+export default ProductList;

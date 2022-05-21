@@ -61,6 +61,7 @@ export const Form: React.FC<IFormProps> = (props) => {
         ref={priceRef}
         placeholder="Price..."
         defaultValue=""
+        type="number"
         className={styles.input}
       />
 
