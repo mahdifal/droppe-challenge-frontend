@@ -1,7 +1,5 @@
 import * as React from "react";
-import classNames from "classnames";
 import ProductList from "components/product/ProductList";
-import styles from "App.module.css";
 import { useDocumentTitle } from "hooks/useDocumentTitle";
 import { IShop, useBusiness } from "hooks/useBusiness";
 import { Navbar } from "components/navbar";
@@ -32,7 +30,7 @@ const App: React.FC<IShop> = () => {
     <main>
       <Navbar />
       <Header />
-      <div className={classNames("container", styles["main"])}>
+      <div className="container main">
         <AddProduct
           setIsOpen={setIsOpen}
           isOpen={isOpen}

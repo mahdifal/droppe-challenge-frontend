@@ -1,38 +1,68 @@
-# Developer at Droppe - React refactoring task
+# Droppe
 
-## Available Scripts
+Buy Europe’s favourite supplies directly from manufacturers
 
-In the project directory, you can run:
+<img alt="view-1" src="src/assets/img/droppe-logo.png" width="200">
 
-### `yarn start`
+## Packages that I installed
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- axios, classnames
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Installation
 
-### `yarn test`
+App requires [Node.js](https://nodejs.org/) v14+ to run.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install the dependencies and start the project.
 
-### `yarn build`
+```sh
+cd project
+npm i
+npm run start
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## How to use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### For access to api service:
 
-### `yarn eject`
+1- please enter api service  
+2- rename `.env-sample` file to `.env` in project  
+3- write url address in the `.env` file and save it
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+REACT_APP_APP_URL=https://fakestoreapi.com
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4- run the project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+npm run start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+5- for run test
+
+```sh
+npm run test
+```
+
+6- for production
+
+```sh
+npm run build
+```
+
+\* if you want to use docker for running the app use the below command on termial
+
+```sh
+docker compose up
+```
+
+**
+Notes
+** During this week I was working full time and did not have enough time to do this task. If I had enough time, I could write more tests, install and configure husky,eslint,prettier packages, and implement code splitting routers with React Lazy and Suspense.
+
+### Thanks
+
+Thank you for your consideration and I hope to join your team soon :)  
+here are my <mehdi.kindly@gmail.com> and [website](https://www.mahdifalamarzi.info).

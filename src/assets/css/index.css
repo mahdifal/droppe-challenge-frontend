@@ -24,6 +24,11 @@ code {
 }
 
 .container {
-  max-width: 750px;
+  max-width: 46.875rem;
   margin: auto;
+}
+
+.main {
+  padding: 2rem 0;
+  margin: 3.125rem auto;
 }
