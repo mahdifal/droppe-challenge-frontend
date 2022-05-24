@@ -58,11 +58,7 @@ npm run build
 docker compose up
 ```
 
-**
-Notes
-** During this week I was working full time and did not have enough time to do this task. If I had enough time, I could write more tests, install and configure husky,eslint,prettier packages, and implement code splitting routers with React Lazy and Suspense.
-
 ### Thanks
 
-Thank you for your consideration and I hope to join your team soon :)  
+Thank you for your consideration  
 here are my <mehdi.kindly@gmail.com> and [website](https://www.mahdifalamarzi.info).
